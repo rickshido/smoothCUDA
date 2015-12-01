@@ -83,10 +83,10 @@ IplImage *convolution(IplImage *image)
 
 	cudaError_t err;
 
-	m = image->height/2;
+	m = image->height;
 	n = image->width;
 
-	buffer_size = sizeof(int) * image->width * image->height/2;
+	buffer_size = sizeof(int) * image->width * image->height;
 
 	dim3 DimGrid((n-1)/16+1,(m-1)/16+1,1);
 	dim3 DimBlock(16,16,1);
